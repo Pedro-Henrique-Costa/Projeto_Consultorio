@@ -1,89 +1,43 @@
 package br.com.consultorio.entity;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
-public class Agenda {
+@Entity
+public class Agenda extends AbstractEntity{
+
+    @Getter @Setter
+    @ManyToOne
     Paciente paciente;
+
+    @Getter @Setter
+    @ManyToOne
     Medico medico;
+
+    @Getter @Setter
+    @ManyToOne
     Secretaria secretaria;
-    String statusAgendamento;
-    LocalDateTime dataAgendamento;
-    LocalDateTime dataCancelamento;
-    LocalDateTime dataAvaliacao;
+
+    @Getter @Setter
+    @Enumerated(EnumType.STRING)
+    @Column(name = "statusAgendamento", nullable = false)
+    StatusAgendamento statusAgendamento;
+
+    @Getter @Setter
+    @Column(name = "observacao", length = 40)
     String observacao;
+
+    @Getter @Setter
+    @Column(name = "encaixe", columnDefinition = "BOOLEAN DEFAULT TRUE", nullable = false)
     Boolean encaixe;
 
-    public Paciente getPaciente() {
-        return paciente;
-    }
+    @Getter @Setter
+    @Column(name = "data")
+    LocalDateTime data;
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public Medico getMedico() {
-        return medico;
-    }
-
-    public void setMedico(Medico medico) {
-        this.medico = medico;
-    }
-
-    public Secretaria getSecretaria() {
-        return secretaria;
-    }
-
-    public void setSecretaria(Secretaria secretaria) {
-        this.secretaria = secretaria;
-    }
-
-    public String getStatusAgendamento() {
-        return statusAgendamento;
-    }
-
-    public void setStatusAgendamento(String statusAgendamento) {
-        this.statusAgendamento = statusAgendamento;
-    }
-
-    public LocalDateTime getDataAgendamento() {
-        return dataAgendamento;
-    }
-
-    public void setDataAgendamento(LocalDateTime dataAgendamento) {
-        this.dataAgendamento = dataAgendamento;
-    }
-
-    public LocalDateTime getDataCancelamento() {
-        return dataCancelamento;
-    }
-
-    public void setDataCancelamento(LocalDateTime dataCancelamento) {
-        this.dataCancelamento = dataCancelamento;
-    }
-
-    public LocalDateTime getDataAvaliacao() {
-        return dataAvaliacao;
-    }
-
-    public void setDataAvaliacao(LocalDateTime dataAvaliacao) {
-        this.dataAvaliacao = dataAvaliacao;
-    }
-
-    public String getObservacao() {
-        return observacao;
-    }
-
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
-
-    public Boolean getEncaixe() {
-        return encaixe;
-    }
-
-    public void setEncaixe(Boolean encaixe) {
-        this.encaixe = encaixe;
-    }
 
 }

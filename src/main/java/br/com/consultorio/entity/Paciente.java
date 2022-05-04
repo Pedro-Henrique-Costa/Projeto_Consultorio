@@ -1,45 +1,32 @@
 package br.com.consultorio.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "pacientes", schema = "public")
 public class Paciente extends Pessoas{
-    //TipoAtendimento tipoAtendimento;
+
+
+    @Getter @Setter
+    @Column(name = "convenio", length = 30)
     String convenio;
+
+    @Getter @Setter
+    @Column(name = "numeroCartaoConvenio", length = 20)
     String numeroCartaoConvenio;
+
+    @Getter @Setter
+    @Column(name = "dataVencimento")
     LocalDateTime dataVencimento;
 
-   /* public TipoAtendimento getTipoAtendimento() {
-        return tipoAtendimento;
-    }
+    @Getter @Setter
+    @Column(name = "tipoAtendimento")
+    TipoAtendimento tipoAtendimento;
 
-    public void setTipoAtendimento(TipoAtendimento tipoAtendimento) {
-        this.tipoAtendimento = tipoAtendimento;
-    }
-    */
-
-    public String getConvenio() {
-        return convenio;
-    }
-
-    public void setConvenio(String convenio) {
-        this.convenio = convenio;
-    }
-
-    public String getNumeroCartaoConvenio() {
-        return numeroCartaoConvenio;
-    }
-
-    public void setNumeroCartaoConvenio(String numeroCartaoConvenio) {
-        this.numeroCartaoConvenio = numeroCartaoConvenio;
-    }
-
-    public LocalDateTime getDataVencimento() {
-        return dataVencimento;
-    }
-
-    public void setDataVencimento(LocalDateTime dataVencimento) {
-        this.dataVencimento = dataVencimento;
-    }
 }

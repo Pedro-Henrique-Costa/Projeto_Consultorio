@@ -1,94 +1,53 @@
 package br.com.consultorio.entity;
-//Abstrata
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Pessoas extends AbstractEntity{
+
+    @Getter @Setter
+    @Column(name = "nome", length = 50)
      String nome;
+
+    @Getter @Setter
+    @Column(name = "telefone", length = 50)
      String telefone;
+
+    @Getter @Setter
+    @Column(name = "celular", length = 50)
      String celular;
+
+    @Getter @Setter
+    @Column(name = "nacionalidade", length = 50)
      String nacionalidade;
+
+    @Getter @Setter
+    @Column(name = "cpf",  length = 50)
      String cpf;
+
+    @Getter @Setter
+    @Column(name = "rg",  length = 50)
      String rg;
+
+    @Getter @Setter
+    @Column(name = "email",  length = 50)
      String email;
+
+    @Getter @Setter
+    @Column(name = "login",  length = 50)
      String login;
+
+    @Getter @Setter
+    @Column(name = "senha", length = 50)
      String senha;
+
+    @Getter @Setter
+    @Column(name = "sexo")
      Sexo sexo;
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public String getNacionalidade() {
-        return nacionalidade;
-    }
-
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public Sexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
-    }
 }

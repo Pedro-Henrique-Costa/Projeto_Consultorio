@@ -1,66 +1,41 @@
 package br.com.consultorio.entity;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
-public class Historico  {
-     //Agenda agenda;
+@Entity
+public class Historico  extends AbstractEntity{
+
+     @Getter @Setter
+     @Column(name = "observacao", length = 50)
      String observacao;
+
+
+     @Getter @Setter
+     @JoinColumn(name = "id_secretaria")
+     @ManyToOne(fetch = FetchType.EAGER)
      Secretaria secretaria;
+
+
+     @Getter @Setter
+     @ManyToOne
      Paciente paciente;
+
+     @Getter @Setter
+     @ManyToOne
+     Agenda agenda;
+
+     @Getter @Setter
+     @Column(name = "data")
      LocalDateTime data;
-     //StatusAgendamento statusAgendamento;
 
-    /*
-    public Agenda getAgenda() {
-        return agenda;
-    }
+     @Getter @Setter
+     @Column(name = "statusAgendamento")
+     StatusAgendamento statusAgendamento;
 
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
-    }
 
-    */
-
-    public String getObservacao() {
-        return observacao;
-    }
-
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
-
-    public Secretaria getSecretaria() {
-        return secretaria;
-    }
-
-    public void setSecretaria(Secretaria secretaria) {
-        this.secretaria = secretaria;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public LocalDateTime getData() {
-        return data;
-    }
-
-    public void setData(LocalDateTime data) {
-        this.data = data;
-    }
-
-/*
-    public StatusAgendamento getStatusAgendamento() {
-        return statusAgendamento;
-    }
-
-    public void setStatusAgendamento(StatusAgendamento statusAgendamento) {
-        this.statusAgendamento = statusAgendamento;
-    }
-*/
 }
