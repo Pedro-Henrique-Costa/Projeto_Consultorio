@@ -52,5 +52,8 @@ public class AgendaService {
         this.agendaRepository.listStatus(status);
     }
 
-
+    public void updateEncaixe(Boolean encaixe, Agenda agenda) {
+        this.agendaRepository.updateEncaixe(encaixe,agenda.getId());
+    }
+    
 }
