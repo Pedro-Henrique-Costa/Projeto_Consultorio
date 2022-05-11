@@ -19,4 +19,11 @@ public interface AgendaRepository extends JpaRepository<Agenda, Long> {
     public void updateStatus(@Param("excluido") LocalDateTime excluido, @Param("agenda") Long idEspecialidade);
 
 
+    @Modifying
+    @Query("SELECT Agenda agenda.statusAgendamento " +
+            "FROM agenda " +
+            "WHERE agenda.statusAgendamento = :status ")
+    public void listStatus(@Param("status") String status);
+
+    //select agendas.status from agendas where status = 'cancelado'
 }

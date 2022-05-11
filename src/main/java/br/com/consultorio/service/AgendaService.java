@@ -1,6 +1,7 @@
 package br.com.consultorio.service;
 
 import br.com.consultorio.entity.Agenda;
+import br.com.consultorio.entity.StatusAgendamento;
 import br.com.consultorio.repository.AgendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,6 +45,11 @@ public class AgendaService {
         else {
             throw new RuntimeException();
         }
+    }
+
+    //pesquisar por status
+    public void listStatus(String status){
+        this.agendaRepository.listStatus(status);
     }
 
 
