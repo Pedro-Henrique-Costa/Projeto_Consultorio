@@ -15,7 +15,7 @@ public class Paciente extends Pessoas{
 
     @Getter @Setter
     @Column(name = "convenio", length = 30)
-    String convenio;
+    Convenio convenio;
 
     @Getter @Setter
     @Column(name = "numeroCartaoConvenio", length = 20)

@@ -2,11 +2,17 @@ package br.com.consultorio.entity;
 
 public enum StatusAgendamento  {
 
+    pendente("Pendente"),
+    aprovado("Aprovado"),
+    rejeitado("Rejeitado"),
+    cancelado("Cancelado"),
+    compareceu("Compareceu"),
+    nao_compareceu("Não Compareceu");
 
-    Pendente (1), Aprovado (2), Cancelado (3), Rejeitado (4), Compareceu (5), NaoCompareceu(6);
+    public final String valor;
 
-    private final int valorStatus;
-    StatusAgendamento(int valor){valorStatus = valor;}
+    private StatusAgendamento(String valor){
+        this.valor = valor;
+    }
 
-    public int getValorStatus(){return valorStatus;}
 }

@@ -2,18 +2,15 @@ package br.com.consultorio.entity;
 
 import javax.persistence.Enumerated;
 
-public enum Sexo {
+public enum Sexo  {
 
-    Masculino (1), Feminino(2), Outros(3);
+    masculino("Masculino"),
+    feminino("Feminino"),
+    outro("Outro");
 
+    public final String valor;
 
-    private final int valorSexo;
-    Sexo(int valor){
-        valorSexo = valor;
+    private Sexo(String valor){
+        this.valor = valor;
     }
-
-    public int getValorSexo(){
-        return valorSexo;
-    }
-
 }

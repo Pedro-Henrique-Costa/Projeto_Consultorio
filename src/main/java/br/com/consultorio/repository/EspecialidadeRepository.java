@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Repository
 public interface EspecialidadeRepository extends JpaRepository<Especialidade, Long> {
 
-    //quando terminar mandar para o git
 
     @Modifying
     @Query("UPDATE Especialidade especialidade " +

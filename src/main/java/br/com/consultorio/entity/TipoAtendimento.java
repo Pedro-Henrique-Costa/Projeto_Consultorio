@@ -2,11 +2,13 @@ package br.com.consultorio.entity;
 
 public enum TipoAtendimento {
 
- Particular(1), Convenio(2);
+ particular("Particular"),
+ convenio("Convênio");
 
- private final int valorTipo;
- TipoAtendimento(int valor){ valorTipo = valor;}
+ public final String valor;
 
- public int getValorTipo() {return valorTipo;}
+ private TipoAtendimento(String valor){
+  this.valor = valor;
+ }
 
 }
