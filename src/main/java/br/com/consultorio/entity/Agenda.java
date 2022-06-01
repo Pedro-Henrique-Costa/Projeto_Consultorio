@@ -8,36 +8,34 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Agenda extends AbstractEntity{
-
-    @Getter @Setter
-    @ManyToOne
-    Paciente paciente;
-
-    @Getter @Setter
-    @ManyToOne
-    Medico medico;
-
-    @Getter @Setter
-    @ManyToOne
-    Secretaria secretaria;
+@Table(name = "agendas", schema = "public")
+public class Agenda extends AbstractEntity {
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
-    @Column(name = "statusAgendamento", nullable = false)
-    StatusAgendamento statusAgendamento;
+    @Column(name = "status", nullable = false)
+    private StatusAgendamento status;
 
     @Getter @Setter
-    @Column(name = "observacao", length = 40)
-    String observacao;
+    @Column(name = "data_de", nullable = false)
+    private LocalDateTime dataDe;
 
     @Getter @Setter
-    @Column(name = "encaixe", columnDefinition = "BOOLEAN DEFAULT TRUE", nullable = false)
-    Boolean encaixe;
+    @Column(name = "data_ate", nullable = false)
+    private LocalDateTime dataAte;
 
     @Getter @Setter
-    @Column(name = "data")
-    LocalDateTime data;
+    @Column(name = "encaixe", columnDefinition = "BOOLEAN DEFAULT FALSE", nullable = false)
+    private Boolean encaixe;
 
+    @Getter @Setter
+    @JoinColumn(name = "id_paciente", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Paciente paciente;
+
+    @Getter @Setter
+    @JoinColumn(name = "id_medico", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Medico medico;
 
 }
